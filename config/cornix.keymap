@@ -20,6 +20,7 @@
 #define ADJUST 3
 
 // RMK [behavior.morse]: hold_timeout = 250ms, hold_on_other_press = true.
+
 &mt {
     flavor = "hold-preferred";
     tapping-term-ms = <250>;
@@ -31,6 +32,7 @@
         // layer. ZMK has no built-in "&inc_dec_msc"-style wrapper for &msc, so it
         // needs its own zmk,behavior-sensor-rotate node (see e.g.
         // sayu-hub/zmk-config-moNa2 for this exact pattern).
+
         mwheel: behavior_sensor_rotate_mouse_wheel {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
@@ -42,6 +44,7 @@
         compatible = "zmk,combos";
 
         // RMK [behavior.combo]: timeout = 50ms.
+
         combo_leftbracket {
             timeout-ms = <50>;
             bindings = <&kp LBKT>;
@@ -92,11 +95,12 @@
             // | CTRL  | GUI | ALT | GUI | MO(1) | MT(SPACE,CTRL)         | MT(ENT,SHFT) | MO(2) | RALT | LEFT | DOWN | RIGHT |
 
             bindings = <
-&kp ESC    &kp Q    &kp W    &kp E    &kp R  &kp T                        &kp Y          &kp U     &kp I      &kp O    &kp P     &kp BSPC
-&kp TAB    &kp A    &kp S    &kp D    &kp F  &kp G                        &kp H          &kp J     &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z    &kp X    &kp C    &kp V  &kp B    &kp C_MUTE &mkp MCLK  &kp N          &kp M     &kp COMMA  &kp DOT  &kp FSLH  &kp GRAVE
-&kp LCTRL  &kp LGUI &kp LALT &kp LGUI &mo LOWER  &mt LCTRL SPACE              &mt RSHFT RET  &mo UPPER     &kp RALT   &kp LEFT &kp DOWN  &kp RIGHT
+&kp ESC    &kp Q     &kp W     &kp E     &kp R      &kp T                                   &kp Y          &kp U      &kp I      &kp O     &kp P     &kp BSPC
+&kp TAB    &kp A     &kp S     &kp D     &kp F      &kp G                                   &kp H          &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
+&kp LSHFT  &kp Z     &kp X     &kp C     &kp V      &kp B            &kp C_MUTE  &mkp MCLK  &kp N          &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp GRAVE
+&kp LCTRL  &kp LGUI  &kp LALT  &kp LGUI  &mo LOWER  &mt LCTRL SPACE                         &mt RSHFT RET  &mo UPPER  &kp RALT   &kp LEFT  &kp DOWN  &kp RIGHT
             >;
+
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &mwheel>;
         };
 
@@ -110,11 +114,12 @@
             // | ___ | ___ | ___ | ___ | ___ | ___         | trans      | MO(3)  | trans| ___  | ___  | ___  |
 
             bindings = <
-&kp GRAVE &kp N1 &kp N2      &kp N3      &kp N4      &kp N5                        &kp N6    &kp N7    &kp N8 &kp N9 &kp N0 &trans
-&trans    &none  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &kp MINUS                    &kp LEFT  &kp DOWN  &kp UP &kp RIGHT &none &none
-&trans    &none  &none       &none       &none       &none    &kp C_MUTE &mkp MCLK  &none     &none     &none  &none  &none  &none
-&none     &none  &none       &none       &none       &none                          &trans    &mo ADJUST     &trans &none  &none  &none
+&kp GRAVE  &kp N1  &kp N2        &kp N3        &kp N4        &kp N5                            &kp N6    &kp N7      &kp N8  &kp N9     &kp N0  &trans
+&trans     &none   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &kp MINUS                         &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT  &none   &none
+&trans     &none   &none         &none         &none         &none      &kp C_MUTE  &mkp MCLK  &none     &none       &none   &none      &none   &none
+&none      &none   &none         &none         &none         &none                             &trans    &mo ADJUST  &trans  &none      &none   &none
             >;
+
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &mwheel>;
         };
 
@@ -128,11 +133,12 @@
             // |trans| ___ | ___ | ___ | ___ | SPACE       | ENTER      | ___   | ___  | ___  | ___  | ___  |
 
             bindings = <
-&trans &kp EXCL &kp AT   &kp HASH &kp DLLR &kp PRCNT                       &kp CARET &kp AMPS     &kp ASTRK &kp LPAR &kp RPAR &trans
-&trans &none    &none    &none    &none    &none                          &kp KP_PLUS &kp KP_MINUS &kp EQUAL &none    &none    &kp PIPE
-&trans &none    &none    &none    &none    &none    &kp C_MUTE &mkp MCLK  &kp UNDER &kp KP_SLASH &none     &none    &none    &none
-&trans &none    &none    &none    &none    &kp SPACE                      &kp RET   &none        &none     &none    &none    &none
+&trans  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT                         &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR       &trans
+&trans  &none     &none   &none     &none     &none                             &kp PLUS   &kp MINUS  &kp EQUAL  &none     &kp BACKSLASH  &kp PIPE
+&trans  &none     &none   &none     &none     &none      &kp C_MUTE  &mkp MCLK  &kp UNDER  &kp SLASH  &none      &none     &none          &kp TILDE
+&trans  &none     &none   &none     &none     &kp SPACE                         &kp RET    &none      &none      &none     &none          &none
             >;
+
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &mwheel>;
         };
 
@@ -146,11 +152,12 @@
             // | BT2 | ___   | ___    | ___ | ___ | ___         |            | ___ | ___ | ___ | ___ | ___ |
 
             bindings = <
-&none        &none      &none &none &none &none                       &none &none &none &none &none &none
-&bt BT_SEL 0 &bt BT_NXT &none &none &none &none                       &none &none &none &none &none &none
-&bt BT_SEL 1 &bt BT_CLR &none &none &none &none    &kp C_MUTE &mkp MCLK  &none &none &none &none &none &none
-&bt BT_SEL 2 &none      &none &none &none &none                       &none &none &none &none &none &none
+&none         &none       &none  &none  &none  &none                         &none  &none  &none  &none  &none  &none
+&bt BT_SEL 0  &bt BT_NXT  &none  &none  &none  &none                         &none  &none  &none  &none  &none  &none
+&bt BT_SEL 1  &bt BT_CLR  &none  &none  &none  &none  &kp C_MUTE  &mkp MCLK  &none  &none  &none  &none  &none  &none
+&bt BT_SEL 2  &none       &none  &none  &none  &none                         &none  &none  &none  &none  &none  &none
             >;
+
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &mwheel>;
         };
     };
